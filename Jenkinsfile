@@ -1,6 +1,8 @@
 Jenkinsfile (Declarative Pipeline)
 pipeline {
-    agent { docker { image 'python:3.5.1' } }
+    agent { 
+        docker { image 'python:3.5.1' } 
+    }
     stages {
         stage('build') {
             steps {
@@ -12,6 +14,16 @@ pipeline {
                 retry (5) {
                     sh 'echo "Timeout Test"'
                 }
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying'
             }
         }
     }
