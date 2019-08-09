@@ -21,6 +21,11 @@ pipeline {
                 echo 'Testing'
             }
         }
+        stage('Sanity check') {
+            steps {
+                input "Does the staging environment look ok?"
+            }
+        }
         stage('Deploy') {
             steps {
                 echo 'Deploying'
