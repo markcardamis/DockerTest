@@ -10,11 +10,11 @@ pipeline {
             steps {
                 sh 'python --version'
                 sh 'echo "Hello World"'
-            }
 
-            timeout(time: 3, unit: 'MINUTES') { //nested retry with timeout
-                retry (5) {
-                    sh 'echo "Timeout Test"'
+                timeout(time: 3, unit: 'MINUTES') { //nested retry with timeout
+                    retry (5) {
+                        sh 'echo "Timeout Test"'
+                    }
                 }
             }
         }
